@@ -1,1 +1,10 @@
-<p>list works!</p>
+<div *ngFor="let item of data">
+    <app-item
+        [id]="item.id"
+        [item]="item.item"
+        [location]="item.location"
+        [imgURL]="item.imgURL"
+        [rating]="item.rating"
+    >
+    </app-item>
+</div>
