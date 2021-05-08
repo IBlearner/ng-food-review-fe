@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Item } from "../models/Item"
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+    data!: Item[]
 
-  ngOnInit(): void {
-  }
+    getData = async () => {
+        let data = await fetch("http://localhost:3000/all", {
+            method: "GET"
+        })
+        this.data = await data.json()
+        console.log(this.data)
+    }
+
+    constructor() {
+        this.getData()  
+    }
+
+    ngOnInit(): void {
+    }
 
 }
