@@ -11,10 +11,10 @@ export class ListComponent implements OnInit {
     data!: Item[]
 
     getData = async () => {
-        let data = await fetch("http://localhost:3000/all", {
+        let res = await fetch("http://localhost:3000/all", {
             method: "GET"
         })
-        this.data = await data.json()
+        this.data = await res.json()
         console.log(this.data)
     }
 
