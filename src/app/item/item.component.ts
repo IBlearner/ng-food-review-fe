@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-item',
@@ -13,6 +13,8 @@ export class ItemComponent implements OnInit {
     @Input() imgURL!: string
     @Input() rating!: number
 
+    @Output() reloadEvent = new EventEmitter<boolean>()
+
     deleteItem = async (id: number) => {
         const obj = {"id": id}
         let res = await fetch("http://localhost:3000/all", {
@@ -23,6 +25,13 @@ export class ItemComponent implements OnInit {
             body: JSON.stringify(obj)
         })
         console.log(res)
+
+        //tell list to update
+        this.reloadList()
+    }
+
+    reloadList = () => {
+        this.reloadEvent.emit(true)
     }
 
     constructor() { }
