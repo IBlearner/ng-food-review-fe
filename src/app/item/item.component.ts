@@ -26,10 +26,10 @@ export class ItemComponent implements OnInit {
         })
         console.log(res)
 
-        //tell list to update
-        this.reloadList()
+        this.reloadList()   //tell list to reload
     }
 
+    //function to tell list to reload
     reloadList = () => {
         this.reloadEvent.emit(true)
     }

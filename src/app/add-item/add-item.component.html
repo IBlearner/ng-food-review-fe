@@ -1,0 +1,14 @@
+<div>
+    <div>New entry:</div>
+    <form action="">
+        <label for="item">Entry name:</label>
+        <input placeholder="name" #item>
+        <label for="location">Location:</label>
+        <input type="text" id="location">
+        <label for="imgURL">Add image here</label>
+        <input type="text" id="imgURL">
+        <label for="rating">Overall Rating:</label>
+        <input type="text" id="rating">
+        <button type="button" (click)="submitEntry(item)">Submit</button>
+    </form>
+</div>
