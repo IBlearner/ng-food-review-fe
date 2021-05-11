@@ -2,13 +2,13 @@
     <div>New entry:</div>
     <form action="">
         <label for="item">Entry name:</label>
-        <input placeholder="name" #item>
+        <input type="text" #item>
         <label for="location">Location:</label>
-        <input type="text" id="location">
+        <input type="text" #location>
         <label for="imgURL">Add image here</label>
-        <input type="text" id="imgURL">
+        <input type="text" #imgURL>
         <label for="rating">Overall Rating:</label>
-        <input type="text" id="rating">
-        <button type="button" (click)="submitEntry(item)">Submit</button>
+        <input type="text" #rating>
+        <button type="button" (click)="submitEntry(item.value, location.value, imgURL.value, rating.value)">Submit</button>
     </form>
 </div>
